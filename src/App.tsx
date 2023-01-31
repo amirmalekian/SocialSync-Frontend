@@ -1,4 +1,9 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Navbar from "./components/navbar/Navbar";
@@ -8,6 +13,8 @@ import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 
 function App() {
+  const currentUser = true;
+
   const Layout = () => {
     return (
       <div>
@@ -21,10 +28,35 @@ function App() {
     );
   };
 
+  type ProtectedRouteProps = {
+    currentUser: boolean;
+    component: React.ComponentType;
+  };
+
+  // const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
+  //   currentUser,
+  //   component: Component,
+  // }) => {
+  //   if (!currentUser) {
+  //     return <Navigate to="/login" />;
+  //   }
+  //   return <Component />;
+  // };
+
+  const ProtectedRoute = ({
+    currentUser,
+    component: Component,
+  }: ProtectedRouteProps) => {
+    if (!currentUser) {
+      return <Navigate to="/login" />;
+    }
+    return <Component />;
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: <ProtectedRoute currentUser={currentUser} component={Layout} />,
       children: [
         {
           path: "/",
