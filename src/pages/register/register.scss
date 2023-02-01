@@ -11,7 +11,7 @@
     flex-direction: row-reverse;
     background-color: white;
     border-radius: 10px;
-    min-height: 300px;
+    min-height: 600px;
     overflow: hidden;
 
     .left {
@@ -27,9 +27,8 @@
       color: white;
 
       h1 {
-        font-size: 50px;
-        font-style: 100px;
-        line-height: 50px;
+        font-size: 100px;
+        line-height: 100px;
       }
 
       span {
@@ -63,12 +62,12 @@
       form {
         display: flex;
         flex-direction: column;
-        gap: 25px;
+        gap: 30px;
 
         input {
           border: none;
           border-bottom: 1px solid lightgray;
-          padding: 10px;
+          padding: 20px 10px;
         }
 
         button {
