@@ -12,11 +12,12 @@ import RightBar from "./components/rightBar/RightBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import "./style.scss";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext, User } from "./context/authContext";
 
 function App() {
-  const currentUser = true;
+  const { user } = useContext(AuthContext);
 
   const { darkMode } = useContext(DarkModeContext);
 
@@ -35,35 +36,48 @@ function App() {
     );
   };
 
-  type ProtectedRouteProps = {
-    currentUser: boolean;
-    component: React.ComponentType;
+  // React.FC<{
+  //   user: User | null;
+  //   children?: React.ReactNode;
+  // }>
+
+  const ProtectedRoute: React.FC<
+    React.PropsWithChildren<{ user: User | null }>
+  > = ({ user, children }) => {
+    if (!user) {
+      return <Navigate to="/login" />;
+    }
+    return <>{children}</>;
   };
 
-  // const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
-  //   currentUser,
+  // * The above method is more readable and easier to understand and is equivalent to the following (second method):
+
+  // interface ProtectedRouteProps {
+  //   user: User | null;
+  //   component: React.ComponentType;
+  // }
+
+  // const ProtectedRoute = ({
+  //   user,
   //   component: Component,
-  // }) => {
-  //   if (!currentUser) {
+  // }: ProtectedRouteProps) => {
+  //   if (!user) {
   //     return <Navigate to="/login" />;
   //   }
   //   return <Component />;
   // };
 
-  const ProtectedRoute = ({
-    currentUser,
-    component: Component,
-  }: ProtectedRouteProps) => {
-    if (!currentUser) {
-      return <Navigate to="/login" />;
-    }
-    return <Component />;
-  };
-
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <ProtectedRoute currentUser={currentUser} component={Layout} />,
+      element: (
+        <ProtectedRoute user={user}>
+          <Layout />
+        </ProtectedRoute>
+
+        // * This piece of code is used for the second method
+        // <ProtectedRoute user={user} component={Layout} />
+      ),
       children: [
         {
           path: "/",
