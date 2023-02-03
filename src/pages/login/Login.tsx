@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./login.scss";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
+import myProfile from "../../assets/myProf.jpg";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
@@ -9,10 +10,9 @@ const Login = () => {
   const handleLogin = () => {
     logIn({
       id: "1",
-      email: "johnDoe@gmail.com",
-      username: "John Doe",
-      profilePicture:
-        "https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      email: "amirhossein@gmail.com",
+      username: "Amirhossein",
+      profilePicture: myProfile,
     });
   };
 

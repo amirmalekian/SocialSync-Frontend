@@ -21,7 +21,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="left">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span>amirsocial</span>
+          <span>SocialSync</span>
         </Link>
         <HomeOutlinedIcon />
         {darkMode ? (
