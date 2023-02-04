@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./login.scss";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
-import myProfile from "../../assets/myProf.jpg";
+import myProfile from "../../assets/users/myProf.jpg";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);

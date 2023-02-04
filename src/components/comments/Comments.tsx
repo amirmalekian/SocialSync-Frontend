@@ -1,6 +1,6 @@
 import "./comments.scss";
-import prof1 from "../../assets/comments/4.jpg";
-import prof2 from "../../assets/comments/2.jpg";
+import m2 from "../../assets/users/m2.jpg";
+import w2 from "../../assets/users/w2.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 
@@ -14,14 +14,14 @@ const Comments = () => {
       desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla eum deleniti, recusandae ea possimus cumque. Consequuntur quos dolorum recusandae voluptas?",
       name: "Jahn Doe",
       userId: 1,
-      profilePicture: prof1,
+      profilePicture: m2,
     },
     {
       id: 2,
       desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla eum deleniti, recusandae ea possimus cumque. Consequuntur quos dolorum recusandae voluptas?",
       name: "Jahn Doe",
       userId: 2,
-      profilePicture: prof2,
+      profilePicture: w2,
     },
   ];
   return (
