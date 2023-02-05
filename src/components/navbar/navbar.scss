@@ -39,6 +39,14 @@
           font-weight: 500;
           background-color: transparent;
           color: themed("textColor");
+
+          @include mobile {
+            display: none;
+          }
+
+          @include tablet {
+            width: 200px;
+          }
         }
       }
     }
@@ -48,10 +56,19 @@
       align-items: center;
       gap: 20px;
 
+      @include mobile {
+        display: none;
+      }
+
       .user {
         display: flex;
         align-items: center;
         gap: 10px;
+        font-weight: 500;
+
+        @include tablet {
+          display: none;
+        }
 
         img {
           width: 30px;

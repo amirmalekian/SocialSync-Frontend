@@ -25,9 +25,15 @@ const Navbar = () => {
         </Link>
         <HomeOutlinedIcon />
         {darkMode ? (
-          <WbSunnyOutlinedIcon onClick={toggleDarkMode} />
+          <WbSunnyOutlinedIcon
+            onClick={toggleDarkMode}
+            style={{ cursor: "pointer" }}
+          />
         ) : (
-          <DarkModeOutlinedIcon onClick={toggleDarkMode} />
+          <DarkModeOutlinedIcon
+            onClick={toggleDarkMode}
+            style={{ cursor: "pointer" }}
+          />
         )}
         <GridViewOutlinedIcon />
         <div className="search">
@@ -39,7 +45,7 @@ const Navbar = () => {
         <PersonOutlinedIcon />
         <EmailOutlinedIcon />
         <NotificationsOutlinedIcon />
-        <ExitToAppOutlinedIcon onClick={logOut} />
+        <ExitToAppOutlinedIcon onClick={logOut} style={{ cursor: "pointer" }} />
         <div className="user">
           <img src={user?.profilePicture} alt="" />
           <span>{user?.username}</span>

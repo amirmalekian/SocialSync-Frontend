@@ -49,6 +49,10 @@
           align-items: center;
           gap: 20px;
 
+          @include mobile {
+            margin-right: 10px;
+          }
+
           .item {
             display: flex;
             align-items: center;
