@@ -7,7 +7,6 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Comments from "../comments/Comments";
-import Share from "../share/Share";
 
 interface Post {
   id: number;
@@ -20,7 +19,6 @@ interface Post {
 
 const Post: React.FC<{ post: Post | null }> = ({ post }) => {
   const [commentsOpen, setCommentsOpen] = useState(false);
-  const [shareOpen, setShareOpen] = useState(false);
 
   // Temporary like state
   const [like, setLike] = useState(false);
@@ -56,13 +54,12 @@ const Post: React.FC<{ post: Post | null }> = ({ post }) => {
             <TextsmsOutlinedIcon />
             12 Comments
           </div>
-          <div className="item" onClick={() => setShareOpen(!shareOpen)}>
+          <div className="item">
             <ShareOutlinedIcon />
             Share
           </div>
         </div>
         {commentsOpen && <Comments />}
-        {shareOpen && <Share />}
       </div>
     </div>
   );

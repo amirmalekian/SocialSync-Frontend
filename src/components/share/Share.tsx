@@ -5,7 +5,7 @@ import Friend from "../../assets/friend.png";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 
-const   Share = () => {
+const Share = () => {
   const { user } = useContext(AuthContext);
   return (
     <div className="share">
